@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "GetCards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model List<Card>
+@*<div class="jumbotron-fluid background"><img class="background"src="~/bg.png"/></div>*@
+<form>
+    <div class="container">
+        <h1 class="display-4 text-info text-center mb-5">Select which cards you wish to keep!</h1>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <div class="card-deck">
+                    @foreach (Card card in Model)
+                    {
+                        <div class="card" style="border:none; background-color: none;">
+                            <img class="card-img-top" src="@card.image" width="50" />
+                            <div class="card-body" style="background-color: none;"><input type="checkbox" name="isChecked" value="@card.code" /></div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-5 text-center">
+        <button type="submit" class="btn btn-info" asp-controller="home" asp-action="GetMoreCards" style="text-decoration: none; font-size:x-large;">Draw</button>
+    </div>
+</form>
+

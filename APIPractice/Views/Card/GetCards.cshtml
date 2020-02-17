@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "GetCards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<Card>
+<h1>GetCards</h1>
+@foreach(Card card in Model)
+{
+    <img src="@card.image" />
+}
+
